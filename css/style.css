@@ -29,7 +29,14 @@ input[type="submit"],input[type="reset"],a{
 img{
 	width:100%;
 }
-
+#loading
+{
+	position:fixed;
+	width: 100%;
+	height:100vh;
+	background:#fff url('../images/loader.gif') no-repeat center ;
+	z-index:99999;	
+}
 /*-- header --*/ 
 h1 a.navbar-brand {
     font-size: 35px;
@@ -438,6 +445,10 @@ ul.address li ul.agileits-address-text li {
     color: #000;
     margin-top: 1em;
 }
+.agileits-address-text ul
+{
+	padding-left:10px;
+}
 .wthree h4 {
     font-size: 18px;
     margin: 10px 0;
@@ -487,7 +498,7 @@ b, strong {
     color: #11b563;
 }
 .about-modal.wthree {
-    padding: 2em 4em;
+    padding: 2em 1.5em;
 }
 /* //modal */
 /*-- //bootstrap-modal-pop-up --*/
@@ -728,19 +739,19 @@ b, strong {
 .education-agile-w3l-year {
     width: 30%;
     float: left;
-    border: 1px solid #11b563;
+    border-top: 1px solid #11b563;
     border-bottom: transparent;
-    padding: 4.64em 2em 3em;
+    padding: 120px 32px;
 }
 .education-agile-w3l-info {
     width: 70%;
     float: left;
-    padding: 2em 2em 3em;
+    padding: 2em 2em 5.35em;
     border-top: 1px solid #11b563;
     border-right: 1px solid #11b563;
 }
 .last {
-    border-bottom: 1px solid #11b563;
+
 }
 .education-agile-w3l-year h4,.education-agile-w3l-info  h4 {
     font-size: 25px;
@@ -1252,6 +1263,22 @@ iframe {
 }
 /* //copyright */
 
+
+/* Hover Link */
+.VisitSite
+{
+	font-size:17px;
+	color:#000;
+}
+
+.VisitSite:hover
+{
+	font-size:20px;
+	color:#11b563;
+}
+
+/* Hover Link */
+
 /*-- to-top --*/
 #toTop {
 	display: none;
@@ -1382,7 +1409,7 @@ iframe {
 		padding: 3em 0;
 	}
 	.education-agile-w3l-info {
-		padding: 2em 1em;
+		padding: 3.78em 1em;
 	}
 	i.fa.fa-hourglass-end {
 		font-size: 172px;
