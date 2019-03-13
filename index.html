@@ -39,8 +39,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   });
 </script>
 <!-- Google Ads -->
-
+<link rel="icon" href="images/iconlogo.jpg">
 </head>
+
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
 <!-- loader -->
@@ -240,10 +241,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="skill-bar-percent">80%</div>
 			</div> <!-- End Skill Bar -->
 
-			<div class="skillbar clearfix " data-percent="80%">
-				<div class="skillbar-title" style="background: #ff9900;"><span>Java</span></div>
-				<div class="skillbar-bar" style="background: #ff9900;"></div>
-				<div class="skill-bar-percent">80%</div>
+			<div class="skillbar clearfix " data-percent="75%">
+				<div class="skillbar-title" style="background: #ff4f81;"><span>Java</span></div>
+				<div class="skillbar-bar" style="background: #ff4f81;"></div>
+				<div class="skill-bar-percent">75%</div>
 			</div> <!-- End Skill Bar -->
 
 			<div class="skillbar clearfix " data-percent="90%">
@@ -259,16 +260,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="skill-bar-percent">80%</div>
 			</div> <!-- End Skill Bar -->
 			
-			<div class="skillbar clearfix " data-percent="60%">
+			<div class="skillbar clearfix " data-percent="50%">
 				<div class="skillbar-title" style="background: #ff9900;"><span>JavaScript</span></div>
 				<div class="skillbar-bar" style="background: #ff9900;"></div>
-				<div class="skill-bar-percent">60%</div>
+				<div class="skill-bar-percent">50%</div>
 			</div> <!-- End Skill Bar -->
 			
 			<div class="skillbar clearfix " data-percent="40%">
-				<div class="skillbar-title" style="background: #ff4f81;"><span>Robotics</span></div>
-				<div class="skillbar-bar" style="background: #ff4f81;"></div>
+				<div class="skillbar-title" style="background: #ff9900;"><span>Robotics</span></div>
+				<div class="skillbar-bar" style="background: #ff9900;"></div>
 				<div class="skill-bar-percent">40%</div>
+			</div> <!-- End Skill Bar -->
+			
+			<div class="skillbar clearfix " data-percent="20%">
+				<div class="skillbar-title" style="background: #3498DB;"><span>Android</span></div>
+				<div class="skillbar-bar" style="background: #3498DB;"></div>
+				<div class="skill-bar-percent">20%</div>
 			</div> <!-- End Skill Bar -->
 
 			<!-- //Skills -->
@@ -616,16 +623,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="col-md-6 contact-left">
 			<h3 data-aos="zoom-in" >contact me</h3>
 				<p>For any kind of projects on websites or anyone/anybody interested in making his/her/their websites  contact me.
-				All kinds of websites are done here. Cost will be depending upon the quantity of work in website.</p>
-			<form action="Submit.html" method="post">
-			<h5><?= $result; ?></h5>
+				All kinds of websites are done here.</p>
+			<form action="contact_form.php" name="Reply" type="file" method="POST" data-netlify="true">
 					<div class="col-md-6 agileits_agile_about_mail_left">
 						<input type="text" name="FirstName" placeholder="First Name" required="">
 						<input type="text" name="LastName" placeholder="Last Name" required="">
 					</div>
 					<div class="col-md-6 agileits_agile_about_mail_left">
 						<input type="email" name="Email" placeholder="Email" required="">
-						<input type="text" name="Phone" placeholder="Phone" required="">
+						<input type="text" name="Phone" pattern="^\d{10}$" placeholder="Phone" required="">
 					</div>
 				<div class="clearfix"> </div>
 				<textarea name="Message" placeholder="Message..." required=""></textarea>

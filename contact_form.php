@@ -6,8 +6,6 @@
 		$visitors_mail=$_POST['Email'];
 		$visitors_phone=$_POST['Phone'];
 		$message=$_POST['Message'];
-		
-		$mail_from='https://.000webhostapp.com';
 	
 		$mail_subject="New Data Entry";
 	
