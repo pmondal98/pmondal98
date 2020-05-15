@@ -1882,5 +1882,5 @@ iframe {
 ::-webkit-scrollbar-thumb {
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+	background-image: linear-gradient(to top, #e14fad 0%, #f9d423 100%);
 }
