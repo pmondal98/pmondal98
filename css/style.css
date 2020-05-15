@@ -3,6 +3,7 @@ html, body{
 	font-family: 'Open Sans', sans-serif;
 	background:#ffffff;
 	margin: 0;
+	scroll-behavior: smooth;	
 }
 p,ul li,ol li{
 	margin:0;
@@ -517,7 +518,7 @@ b, strong {
     line-height: 28px;
     letter-spacing: .5px;
     font-size: 14px;
-    margin: 1em 0;
+    margin: 10px 0;
 }
 .about-left {
     padding: 0 0 0 5em;
@@ -631,7 +632,7 @@ b, strong {
 /*-- //about --*/
 
 /* Skills */
-.skills,.contact,.education,.about,.portfolio{
+.skills,.contact,.education,.about,.portfolio, .works{
 	padding:5em 0;
 }
 .skill-grids-right {
@@ -798,6 +799,15 @@ i.fa.fa-hourglass-end {
     letter-spacing: 2px;
     color: #000;
 }
+.works h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #000;
+}
 
 	/*-- Tabs --*/
 
@@ -873,7 +883,12 @@ i.fa.fa-hourglass-end {
 	}
 
 	.portfolio h4 {
-		margin: 30px 0;
+		margin: 10px 0;
+		font-size: 25px;
+		font-weight: 600;
+	}
+	.works h4 {
+		margin: 10px 0;
 		font-size: 25px;
 		font-weight: 600;
 	}
@@ -1314,6 +1329,10 @@ iframe {
 	i.fa.fa-hourglass-end {
 		margin-top: 1.6em;
 	}
+	.banner {
+		background: url(../images/my.jpg) no-repeat 0px 0px;
+		background-size: cover;
+	}
 }
 @media screen and (max-width: 1680px){
 	.education-agile-w3l-year {
@@ -1350,9 +1369,9 @@ iframe {
 		margin-bottom: 30px;
 	}
 	.education-agile-w3l-year {
-		padding: 5.5em 1em;
+		padding: 1.5em 1em;
 	}
-	.skills, .contact, .education, .about, .portfolio {
+	.skills, .contact, .education, .about, .portfolio, .works {
 		padding: 4em 0;
 	}
 
@@ -1365,10 +1384,10 @@ iframe {
 		font-size: 22px;
 	}
 	i.fa.fa-hourglass-end {
-		margin-top: 3em;
+		margin-top: 2.3em;
 		font-size: 177px;
 	}
-	.skills, .contact, .education, .about, .portfolio {
+	.skills, .contact, .education, .about, .portfolio, .works {
 		padding: 3em 0;
 	}
 }
@@ -1405,8 +1424,8 @@ iframe {
 	.education-agile-w3l-year h6, .education-agile-w3l-info h6 {
 		letter-spacing: 1px;
 	}
-	.skills, .contact, .education, .about, .portfolio {
-		padding: 3em 0;
+	.skills, .contact, .education, .about, .portfolio, .works {
+		padding: 2em 0;
 	}
 	.education-agile-w3l-info {
 		padding: 3.78em 1em;
@@ -1415,6 +1434,9 @@ iframe {
 		font-size: 172px;
 	}
 	.portfolio h3 {
+		font-size: 35px;
+	}
+	.works h3 {
 		font-size: 35px;
 	}
 	.skill-grids h2, .contact-left h3 {
@@ -1627,12 +1649,18 @@ iframe {
 	.portfolio h4 {
 		margin: 22px 0;
 	}
+	.works h4 {
+		margin: 22px 0;
+	}
 }
 @media screen and (max-width: 600px){
 	.education-agile-w3l-year {
 		padding: 4.6em 1em;
 	}
 	.portfolio h4 {
+		margin: 20px 0;
+	}
+	.works h4 {
 		margin: 20px 0;
 	}
 	.w3_banner_info {
@@ -1708,11 +1736,15 @@ iframe {
 	.w3_banner_info {
 		width: auto;
 	}
-	.skills, .contact, .education, .about, .portfolio {
-		padding: 2em 0;
+	.skills, .contact, .education, .about, .portfolio,.works {
+		padding: 1em 0;
 	}
 	.copyright-agile p {
 		line-height: 2em;
+	}
+	.banner {
+		background: url(../images/myphone.jpg) no-repeat 0px 0px;
+		background-size: cover;
 	}
 }
 @media screen and (max-width: 414px){
@@ -1720,7 +1752,7 @@ iframe {
 		width: 20%;
 	}
 	.about-left {
-		padding: 0 2em;
+		padding: 10px 2em;
 	}
 	.about-right {
 		width: 100%;
@@ -1760,7 +1792,7 @@ iframe {
 		margin: 7em 0 4em;
 	}
 	.banner {
-		background: url(../images/my.jpg) no-repeat -182px 0px;
+		background: url(../images/myphone.jpg) no-repeat 0px 0px;
 		background-size: cover;
 	}
 }
@@ -1832,4 +1864,23 @@ iframe {
 	.w3_banner_info_grid p {
 		margin: 1.5em 0 .5em;
 	}
+	.banner {
+		background: url(../images/myphone.jpg) no-repeat -10px 0px;
+		background-size: cover;
+	}
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+	width: 12px;
+}
+
+::-webkit-scrollbar-track {
+	background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+}
+
+::-webkit-scrollbar-thumb {
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
 }
