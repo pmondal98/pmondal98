@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- header -->
 		<div class="header-w3layouts"> 
 			<!-- Navigation -->
-			<nav class="navbar navbar-default navbar-fixed-top"> 
+			<nav class="navbar navbar-default navbar-fixed-top animate-pop-up"> 
 					<div class="navbar-header page-scroll">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 							<span class="sr-only">MySeLf</span>
@@ -80,13 +80,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>	
 		<!-- //header -->
 
-			<div class="w3_banner_info" style="padding-top:100px">
+			<div class="w3_banner_info animate-pop-up" style="padding-top:100px">
 				<div class="w3_banner_info_grid">
-					<h2 data-aos="fade-right" style="padding-bottom:10px;">Hi, i am </h2>
-					<h2 data-aos="fade-right">Prabhas&nbsp; Mondal.</h2>
+					<h2 style="padding-bottom:10px;">Hi, i am </h2>
+					<h2>Prabhas&nbsp; Mondal.</h2>
 					<b><p style="color:white;font-size:20px;margin-bottom:40px;">Web and Android Developer.</p></b> 
 					<p></p>
-					<ul data-aos="slide-up">
+					<ul>
 						<li><a href="#" class="w3ls_more" style="font-family:Dungeon;font-style:Dungeon" data-toggle="modal" data-target="#myModal">Know More</a></li>						
 					</ul>
 				</div>
@@ -855,6 +855,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 </script>
 <!-- Loading Script-->
+
+<!-- Header Load Animation -->
+<script type="text/javascript">
+document.body.className += ' js-loading';
+
+window.addEventListener('load', showPage, false);
+
+function showPage(){
+  document.body.className = document.body.className.replace('js-loading', '');
+}
+</script>
+<!-- Header Load Animation -->
 	
 </body>
 </html>
