@@ -1884,25 +1884,3 @@ iframe {
 	border-radius: 5px;
 	background-image: linear-gradient(to top, #e14fad 0%, #f9d423 100%);
 }
-
-/* Amimation of header */
-
-.js-loading *, .js-loading *:before, .js-loading *:after {
-	animation-play-state: paused !important;
- }
-
- 
- @keyframes no-transform {
-	100% {
-	  opacity: 1;
-	  transform: none;
-	}
- }
-
- .animate-pop-up {
-	animation: no-transform .6s cubic-bezier(0, .69, .3, 1.14) forwards;
-	opacity: 0;
-	transform: translateY(-2rem) scale(.8);
- }
- 
- /* Animation of header */
