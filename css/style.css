@@ -1333,7 +1333,7 @@ iframe {
 }
 @media screen and (max-width: 1680px){
 	.education-agile-w3l-year {
-		padding: 4.64em 2em;
+		padding: 4.64em 0em;
 	}
 	i.fa.fa-hourglass-end {
 		margin-top: 2em;
