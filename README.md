@@ -1,5 +1,5 @@
 # 💫 About Me:
-Innovative Full-Stack Developer<br>Passionate about Crafting Seamless User Experiences 🚀💻<br>Software Engineer at HighRadius<br>2021 KiiT Alumni
+Innovative Full-Stack Developer<br>Passionate about Crafting Seamless User Experiences 🚀💻<br>Software Engineer at Oracle<br>2021 KiiT Alumni
 
 
 ## 🌐 Socials:
