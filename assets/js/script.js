@@ -157,3 +157,120 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+const spaceBackground = document.getElementById("spaceBackground");
+
+// Generate multi-layered stars
+function generateStars(layer, count) {
+  const container = document.querySelector(`.stars-layer-${layer}`);
+
+  for (let i = 0; i < count; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+
+    const size = Math.random() * 1.5 + 0.5;
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+    star.style.animationDelay = `${Math.random() * 4}s`;
+
+    container.appendChild(star);
+  }
+}
+
+// Create three layers of stars with different densities
+generateStars(1, 80); // Foreground - fewer, brighter stars
+generateStars(2, 100); // Middle ground
+generateStars(3, 120); // Background - more, dimmer stars
+
+// Generate cosmic dust particles
+function createCosmicDust() {
+  const dust = document.createElement("div");
+  dust.className = "cosmic-dust";
+
+  dust.style.left = `${Math.random() * 100}%`;
+  dust.style.bottom = "0";
+  dust.style.animationDelay = `${Math.random() * 15}s`;
+  dust.style.animationDuration = `${Math.random() * 10 + 10}s`;
+
+  spaceBackground.appendChild(dust);
+}
+
+// Create dust particles
+for (let i = 0; i < 30; i++) {
+  createCosmicDust();
+}
+
+// Generate shooting stars with random timing
+function createShootingStar() {
+  const shootingStar = document.createElement("div");
+  shootingStar.className = "shooting-star";
+
+  const startX = Math.random() * window.innerWidth * 0.8;
+  const startY = Math.random() * (window.innerHeight * 0.3);
+  const length = Math.random() * 100 + 80;
+
+  shootingStar.style.left = `${startX}px`;
+  shootingStar.style.top = `${startY}px`;
+  shootingStar.style.width = `${length}px`;
+  shootingStar.style.animationDuration = `${Math.random() * 2 + 3}s`;
+
+  spaceBackground.appendChild(shootingStar);
+
+  setTimeout(() => {
+    shootingStar.remove();
+  }, 4500);
+}
+
+// Create shooting stars at random intervals
+function scheduleShootingStar() {
+  const delay = Math.random() * 8000 + 4000; // 4-12 seconds
+  setTimeout(() => {
+    createShootingStar();
+    scheduleShootingStar();
+  }, delay);
+}
+
+// Start the shooting star cycle
+scheduleShootingStar();
+
+// Create initial shooting stars
+setTimeout(() => createShootingStar(), 2000);
+setTimeout(() => createShootingStar(), 6000);
+
+// Subtle parallax effect on mouse move (optional)
+let mouseX = 0,
+  mouseY = 0;
+let currentX = 0,
+  currentY = 0;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+  mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+});
+
+function animateParallax() {
+  currentX += (mouseX - currentX) * 0.05;
+  currentY += (mouseY - currentY) * 0.05;
+
+  const layers = document.querySelectorAll(".stars-layer");
+  layers.forEach((layer, index) => {
+    const depth = (index + 1) * 3;
+    layer.style.transform = `translate(${currentX * depth}px, ${
+      currentY * depth
+    }px)`;
+  });
+
+  const planets = document.querySelectorAll(".planet");
+  planets.forEach((planet) => {
+    const depth = 8;
+    planet.style.transform += ` translate(${currentX * depth}px, ${
+      currentY * depth
+    }px)`;
+  });
+
+  requestAnimationFrame(animateParallax);
+}
+
+animateParallax();

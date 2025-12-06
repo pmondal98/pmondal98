@@ -3,7 +3,7 @@
 \*-----------------------------------*/
 
 /**
- * copyright 2022 @codewithsadee
+ * copyright 2025 © John Doe
  */
 
 /*-----------------------------------*\
@@ -2024,5 +2024,665 @@ textarea.form-input::-webkit-resizer {
 
   .timeline-text {
     max-width: 700px;
+  }
+}
+
+/* Professional Space Background */
+    .space-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    }
+
+    /* Subtle animated gradient overlay */
+    .space-background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(ellipse at 20% 30%, rgba(255, 193, 7, 0.03) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, rgba(33, 150, 243, 0.03) 0%, transparent 50%);
+      animation: gradientShift 20s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.8; }
+    }
+
+    /* Sophisticated star layers */
+    .stars-layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Three layers of stars with different depths */
+    .stars-layer-1 .star {
+      animation: twinkle 4s infinite ease-in-out;
+    }
+
+    .stars-layer-2 .star {
+      animation: twinkle 5s infinite ease-in-out;
+      opacity: 0.7;
+    }
+
+    .stars-layer-3 .star {
+      animation: twinkle 6s infinite ease-in-out;
+      opacity: 0.5;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { 
+        opacity: 0.3; 
+        transform: scale(1);
+      }
+      50% { 
+        opacity: 1; 
+        transform: scale(1.2);
+      }
+    }
+
+    /* Elegant shooting stars */
+    .shooting-star {
+      position: absolute;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+      animation: shoot 4s linear infinite;
+      opacity: 0;
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8));
+    }
+
+    @keyframes shoot {
+      0% {
+        transform: translateX(0) translateY(0) rotate(-45deg);
+        opacity: 0;
+      }
+      5% {
+        opacity: 1;
+      }
+      80% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-600px) translateY(600px) rotate(-45deg);
+        opacity: 0;
+      }
+    }
+
+    /* Refined planets with realistic shadows */
+    .planet {
+      position: absolute;
+      border-radius: 50%;
+      animation: orbit 30s infinite ease-in-out;
+      filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+    }
+
+    .planet-1 {
+      width: 120px;
+      height: 120px;
+      background: 
+        radial-gradient(circle at 35% 35%, rgba(255, 200, 100, 0.8), transparent 70%),
+        radial-gradient(circle at 30% 30%, #ffb74d, #ff6f00);
+      top: 12%;
+      right: 8%;
+      opacity: 0.6;
+      animation-delay: 0s;
+    }
+
+    .planet-1::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 70% 70%, transparent 30%, rgba(0, 0, 0, 0.3) 70%);
+    }
+
+    .planet-2 {
+      width: 80px;
+      height: 80px;
+      background: 
+        radial-gradient(circle at 35% 35%, rgba(150, 200, 255, 0.8), transparent 70%),
+        radial-gradient(circle at 30% 30%, #64b5f6, #1976d2);
+      bottom: 25%;
+      left: 5%;
+      opacity: 0.5;
+      animation-delay: 10s;
+    }
+
+    .planet-2::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 70% 70%, transparent 30%, rgba(0, 0, 0, 0.3) 70%);
+    }
+
+    @keyframes orbit {
+      0%, 100% {
+        transform: translateY(0) translateX(0) scale(1);
+      }
+      25% {
+        transform: translateY(-20px) translateX(10px) scale(1.05);
+      }
+      50% {
+        transform: translateY(-30px) translateX(15px) scale(1);
+      }
+      75% {
+        transform: translateY(-15px) translateX(5px) scale(0.95);
+      }
+    }
+
+    /* Sophisticated nebula effects */
+    .nebula {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.08;
+      animation: nebulaDrift 40s infinite ease-in-out;
+      mix-blend-mode: screen;
+    }
+
+    .nebula-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 193, 7, 0.4) 0%, transparent 70%);
+      top: -10%;
+      left: -5%;
+      animation-delay: 0s;
+    }
+
+    .nebula-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(33, 150, 243, 0.3) 0%, transparent 70%);
+      bottom: -10%;
+      right: -5%;
+      animation-delay: 15s;
+    }
+
+    .nebula-3 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(156, 39, 176, 0.25) 0%, transparent 70%);
+      top: 35%;
+      left: 25%;
+      animation-delay: 30s;
+    }
+
+    @keyframes nebulaDrift {
+      0%, 100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+      25% {
+        transform: translate(40px, -30px) scale(1.1) rotate(5deg);
+      }
+      50% {
+        transform: translate(70px, 0px) scale(1.15) rotate(10deg);
+      }
+      75% {
+        transform: translate(40px, 30px) scale(1.05) rotate(5deg);
+      }
+    }
+
+    /* Minimal constellation */
+    .constellation {
+      position: absolute;
+      opacity: 0.15;
+      animation: constellationGlow 8s infinite ease-in-out;
+    }
+
+    .constellation-line {
+      stroke: rgba(255, 255, 255, 0.4);
+      stroke-width: 0.5;
+      stroke-dasharray: 5, 5;
+      animation: dash 20s linear infinite;
+    }
+
+    @keyframes dash {
+      to {
+        stroke-dashoffset: -100;
+      }
+    }
+
+    @keyframes constellationGlow {
+      0%, 100% { opacity: 0.1; }
+      50% { opacity: 0.25; }
+    }
+
+    /* Subtle particle dust */
+    .cosmic-dust {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: dustFloat 15s infinite linear;
+    }
+
+    @keyframes dustFloat {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.3;
+      }
+      90% {
+        opacity: 0.3;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+      }
+    }
+
+
+
+    /* ============================================
+   GLASSMORPHISM ENHANCEMENTS
+   Add these styles to your existing style.css
+   ============================================ */
+
+/* Enhanced body background for glass effect */
+body {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Space background container */
+.space-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+
+/* Main container positioning */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Glassmorphism for Sidebar */
+.sidebar {
+  background: rgba(30, 33, 41, 0.4) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Glassmorphism for Articles */
+article {
+  background: rgba(30, 33, 41, 0.4) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced Service Items */
+.service-item {
+  background: rgba(42, 45, 52, 0.3) !important;
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: all 0.3s ease;
+}
+
+.service-item::before {
+  background: transparent !important;
+}
+
+.service-item:hover {
+  background: rgba(42, 45, 52, 0.5) !important;
+  border-color: rgba(255, 193, 7, 0.2) !important;
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Enhanced Content Cards */
+.content-card {
+  background: rgba(42, 45, 52, 0.3) !important;
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: all 0.3s ease;
+}
+
+.content-card::before {
+  background: transparent !important;
+}
+
+.content-card:hover {
+  background: rgba(42, 45, 52, 0.5) !important;
+  border-color: rgba(255, 193, 7, 0.15) !important;
+  transform: translateY(-3px);
+}
+
+/* Enhanced Skills List */
+.skills-list {
+  background: rgba(42, 45, 52, 0.3) !important;
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+}
+
+.skills-list::before {
+  background: transparent !important;
+}
+
+/* Enhanced Timeline Items */
+.timeline-item {
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(42, 45, 52, 0.2);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+  background: rgba(42, 45, 52, 0.35);
+  border-color: rgba(255, 193, 7, 0.1);
+  transform: translateX(5px);
+}
+
+/* Enhanced Blog Post Items */
+.blog-post-item > a {
+  background: rgba(42, 45, 52, 0.3) !important;
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: all 0.3s ease;
+}
+
+.blog-post-item > a::before {
+  background: transparent !important;
+}
+
+.blog-post-item > a:hover {
+  background: rgba(42, 45, 52, 0.5) !important;
+  border-color: rgba(255, 193, 7, 0.2) !important;
+  transform: translateY(-5px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Enhanced Project Items */
+.project-item > a {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.project-item > a:hover {
+  transform: translateY(-8px);
+}
+
+.project-img {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Enhanced Navbar */
+.navbar {
+  background: rgba(30, 33, 41, 0.6) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 
+    0 -4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Enhanced Modal */
+.testimonials-modal {
+  background: rgba(30, 33, 41, 0.85) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 
+    0 16px 60px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Enhanced Icon Boxes */
+.icon-box {
+  background: rgba(255, 193, 7, 0.1) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  transition: all 0.3s ease;
+}
+
+.icon-box::before {
+  background: rgba(30, 33, 41, 0.6) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.icon-box:hover {
+  background: rgba(255, 193, 7, 0.15) !important;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+}
+
+/* Enhanced Form Elements */
+.form-input {
+  background: rgba(42, 45, 52, 0.3) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  background: rgba(42, 45, 52, 0.5) !important;
+  border-color: rgba(255, 193, 7, 0.5) !important;
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.2);
+}
+
+/* Enhanced Form Button */
+.form-btn {
+  background: rgba(255, 193, 7, 0.1) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  transition: all 0.3s ease;
+}
+
+.form-btn::before {
+  background: rgba(42, 45, 52, 0.6) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.form-btn:hover {
+  background: rgba(255, 193, 7, 0.2) !important;
+  border-color: rgba(255, 193, 7, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 24px rgba(255, 193, 7, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced Filter Select */
+.filter-select,
+.select-list {
+  background: rgba(42, 45, 52, 0.4) !important;
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.select-item button:hover {
+  background: rgba(255, 193, 7, 0.1) !important;
+}
+
+/* Enhanced Mapbox */
+.mapbox {
+  background: rgba(42, 45, 52, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Enhanced Info More Button */
+.info_more-btn {
+  background: rgba(255, 193, 7, 0.1) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.info_more-btn::before {
+  background: rgba(42, 45, 52, 0.6) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.info_more-btn:hover {
+  background: rgba(255, 193, 7, 0.2) !important;
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+}
+
+/* Enhanced Modal Close Button */
+.modal-close-btn {
+  background: rgba(42, 45, 52, 0.6) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(42, 45, 52, 0.8) !important;
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* Smooth glass shine effect on hover */
+@keyframes glassShine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.service-item:hover::after,
+.content-card:hover::after,
+.blog-post-item > a:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: glassShine 2s ease-in-out;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Enhanced separator with glass effect */
+.separator {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Add subtle glow to active navbar link */
+.navbar-link.active {
+  text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+  position: relative;
+}
+
+.navbar-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 193, 7, 0.8),
+    transparent
+  );
+  box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+}
+
+/* Responsive adjustments for glass effect */
+@media (max-width: 580px) {
+  .sidebar,
+  article {
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+  }
+}
+
+/* Performance optimization for mobile */
+@media (max-width: 768px) {
+  .service-item,
+  .content-card,
+  .blog-post-item > a {
+    backdrop-filter: blur(8px) saturate(140%);
+    -webkit-backdrop-filter: blur(8px) saturate(140%);
   }
 }
