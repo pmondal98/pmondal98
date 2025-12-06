@@ -2673,30 +2673,9 @@
     text-shadow: 0 0 8px rgba(255, 193, 7, 0.8), 0 0 12px rgba(255, 193, 7, 0.6);
   }
 
-  @media (max-width: 420px) {
-    .testimonials-modal{
-      margin-top: 75%;
-    }
-
-  }
-
-  @media (max-width: 480px) {
-    .testimonials-modal{
-      margin-top: 75%;
-    }
-
-  }
-
-  @media (max-width: 520px) {
-    .testimonials-modal{
-      margin-top: 75%;
-    }
-
-  }
-
   @media (max-width: 550px) {
     .testimonials-modal{
-      margin-top: 75%;
+      margin-top: 75vh;
     }
 
   }
