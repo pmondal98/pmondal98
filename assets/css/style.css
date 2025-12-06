@@ -682,7 +682,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background: hsl(0, 0%, 5%);
     opacity: 0;
     visibility: hidden;
@@ -2680,6 +2680,14 @@
       backdrop-filter: blur(15px) saturate(180%);
       -webkit-backdrop-filter: blur(15px) saturate(180%);
     }
+    .modal-container {
+        align-items: center; /* Ensures perfect vertical centering */
+    }
+    
+    .testimonials-modal {        
+        margin-top: 75%;
+    }
+
   }
 
   /* Performance optimization for mobile */
