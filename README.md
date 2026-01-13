@@ -1,7 +1,5 @@
 # 🌌 Prabhas Mondal Portfolio
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-id-here/deploy-status)](https://pmondal98.netlify.app/)
-
 A premium, space-themed portfolio website showcasing the professional journey, technical expertise, and creative projects of **Prabhas Mondal**.
 
 ## ✨ Live Demo
@@ -42,10 +40,6 @@ This portfolio is a personal showcase built with a modern **Glassmorphism** aest
   - **Covid-19 Tracker**: Data visualization dashboard.
 - **Gallery**: High-quality mobile photography showcase.
 - **Contact**: Interactive lead generation and social link hub.
-
-## 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=pmondal98&theme=dark&hide_border=false&include_all_commits=true&count_private=true)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=pmondal98&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
 
 ## 🌐 Connect with Me:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/prabhas-mondal) 
