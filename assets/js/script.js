@@ -251,12 +251,13 @@ document.addEventListener("mousemove", (e) => {
 });
 
 function animateParallax() {
-  currentX += (mouseX - currentX) * 0.05;
-  currentY += (mouseY - currentY) * 0.05;
+  // Smoother interpolation
+  currentX += (mouseX - currentX) * 0.03;
+  currentY += (mouseY - currentY) * 0.03;
 
   const layers = document.querySelectorAll(".stars-layer");
   layers.forEach((layer, index) => {
-    const depth = (index + 1) * 3;
+    const depth = (index + 1) * 2; // Reduced for smoother motion
     layer.style.transform = `translate(${currentX * depth}px, ${
       currentY * depth
     }px)`;
@@ -264,7 +265,7 @@ function animateParallax() {
 
   const planets = document.querySelectorAll(".planet");
   planets.forEach((planet) => {
-    const depth = 8;
+    const depth = 5; // Reduced for smoother motion
     planet.style.transform += ` translate(${currentX * depth}px, ${
       currentY * depth
     }px)`;
@@ -274,3 +275,86 @@ function animateParallax() {
 }
 
 animateParallax();
+
+// Intersection Observer for skill bars animation
+const skillsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const skillBars = entry.target.querySelectorAll('.skill-progress-fill');
+      skillBars.forEach((bar, index) => {
+        const parentItem = bar.closest('.skills-item');
+        const targetWidth = parentItem.querySelector('data')?.value || '75';
+        
+        // Set CSS variable for animation
+        bar.style.setProperty('--target-width', targetWidth + '%');
+        
+        // Trigger animation by adding class
+        setTimeout(() => {
+          bar.style.width = targetWidth + '%';
+        }, index * 200);
+      });
+      
+      skillsObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.3
+});
+
+// Observe skills section
+const skillsSection = document.querySelector('.skills-list');
+if (skillsSection) {
+  skillsObserver.observe(skillsSection);
+}
+
+// Intersection Observer for timeline items
+const timelineObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.animation = `slideInLeft var(--duration-medium) var(--ease-smooth) forwards`;
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+// Observe timeline items
+const timelineItems = document.querySelectorAll('.timeline-item');
+timelineItems.forEach((item, index) => {
+  item.style.animationDelay = `${index * 0.1}s`;
+  timelineObserver.observe(item);
+});
+
+// Smooth scroll behavior for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href !== '#' && href.length > 1) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  });
+});
+
+// Add stagger animation to service items on page load
+const serviceItems = document.querySelectorAll('.service-item');
+serviceItems.forEach((item, index) => {
+  item.style.opacity = '0';
+  item.style.animation = `fadeSlideIn var(--duration-medium) var(--ease-smooth) forwards`;
+  item.style.animationDelay = `${index * 0.1 + 0.2}s`;
+});
+
+// Add entrance animation to testimonial cards
+const testimonialCards = document.querySelectorAll('.testimonials-item');
+testimonialCards.forEach((card, index) => {
+  card.style.opacity = '0';
+  card.style.animation = `fadeSlideIn var(--duration-medium) var(--ease-smooth) forwards`;
+  card.style.animationDelay = `${index * 0.15 + 0.3}s`;
+});
