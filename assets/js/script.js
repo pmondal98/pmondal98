@@ -116,23 +116,65 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 
 // contact form variables
-const form = document.querySelector("[data-form]");
+const contactForm = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
+const formSuccess = document.querySelector("#form-success");
 
 // add event to all form input field
 for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].addEventListener("input", function () {
-
     // check form validation
-    if (form.checkValidity()) {
+    if (contactForm.checkValidity()) {
       formBtn.removeAttribute("disabled");
     } else {
       formBtn.setAttribute("disabled", "");
     }
-
   });
 }
+
+// Contact form submission logic
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const btnSpan = formBtn.querySelector("span");
+    const originalText = btnSpan.innerText;
+
+    // Loading state
+    formBtn.classList.add("sending");
+    btnSpan.innerText = "Sending...";
+
+    const formData = new FormData(contactForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        // Success state
+        contactForm.classList.add("hidden");
+        formSuccess.classList.add("active");
+        contactForm.reset();
+        formBtn.setAttribute("disabled", "");
+      })
+      .catch((error) => {
+        alert("Oops! There was a problem submitting your form: " + error);
+      })
+      .finally(() => {
+        // Reset button state
+        formBtn.classList.remove("sending");
+        btnSpan.innerText = originalText;
+      });
+  });
+}
+
+// Global reset function for "Send another message"
+window.resetForm = function () {
+  contactForm.classList.remove("hidden");
+  formSuccess.classList.remove("active");
+};
 
 
 
