@@ -179,10 +179,10 @@ function generateStars(layer, count) {
   }
 }
 
-// Create three layers of stars with different densities
-generateStars(1, 80); // Foreground - fewer, brighter stars
-generateStars(2, 100); // Middle ground
-generateStars(3, 120); // Background - more, dimmer stars
+// Create three layers of stars with optimized densities
+generateStars(1, 40); // Foreground - fewer, brighter stars
+generateStars(2, 60); // Middle ground
+generateStars(3, 80); // Background - more, dimmer stars
 
 // Generate cosmic dust particles
 function createCosmicDust() {
@@ -250,59 +250,73 @@ document.addEventListener("mousemove", (e) => {
   mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
 });
 
+// Cache parallax elements for performance
+const starsLayers = document.querySelectorAll(".stars-layer");
+const spacePlanets = document.querySelectorAll(".planet");
+
 function animateParallax() {
   // Smoother interpolation
-  currentX += (mouseX - currentX) * 0.03;
-  currentY += (mouseY - currentY) * 0.03;
+  const deltaX = mouseX - currentX;
+  const deltaY = mouseY - currentY;
+  
+  // Dead-zone check: stop updating if the difference is tiny to save CPU
+  if (Math.abs(deltaX) < 0.001 && Math.abs(deltaY) < 0.001) {
+    requestAnimationFrame(animateParallax);
+    return;
+  }
 
-  const layers = document.querySelectorAll(".stars-layer");
-  layers.forEach((layer, index) => {
-    const depth = (index + 1) * 2; // Reduced for smoother motion
-    layer.style.transform = `translate(${currentX * depth}px, ${
-      currentY * depth
-    }px)`;
+  currentX += deltaX * 0.03;
+  currentY += deltaY * 0.03;
+
+  // Animate stars layers
+  starsLayers.forEach((layer, index) => {
+    const depth = (index + 1) * 2;
+    layer.style.transform = `translate3d(${currentX * depth}px, ${currentY * depth}px, 0)`;
   });
 
-  const planets = document.querySelectorAll(".planet");
-  planets.forEach((planet) => {
-    const depth = 5; // Reduced for smoother motion
-    planet.style.transform += ` translate(${currentX * depth}px, ${
-      currentY * depth
-    }px)`;
+  // Animate planets
+  spacePlanets.forEach((planet) => {
+    const depth = 5;
+    // Fixed: Use translate3d for hardware acceleration and avoid string appending
+    planet.style.transform = `translate3d(${currentX * depth}px, ${currentY * depth}px, 0)`;
   });
 
   requestAnimationFrame(animateParallax);
 }
 
-animateParallax();
+// Start parallax
+if (starsLayers.length > 0 || spacePlanets.length > 0) {
+  animateParallax();
+}
 
-// Intersection Observer for skill bars animation
+// Intersection Observer for tech skill cards entrance animation
 const skillsObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const skillBars = entry.target.querySelectorAll('.skill-progress-fill');
-      skillBars.forEach((bar, index) => {
-        const parentItem = bar.closest('.skills-item');
-        const targetWidth = parentItem.querySelector('data')?.value || '75';
+      const techItems = entry.target.querySelectorAll('.tech-item');
+      
+      techItems.forEach((item, index) => {
+        // Initial state
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px) scale(0.95)';
+        item.style.transition = `all var(--duration-medium) var(--ease-out-quint)`;
         
-        // Set CSS variable for animation
-        bar.style.setProperty('--target-width', targetWidth + '%');
-        
-        // Trigger animation by adding class
+        // Staggered entrance
         setTimeout(() => {
-          bar.style.width = targetWidth + '%';
-        }, index * 200);
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0) scale(1)';
+        }, index * 100);
       });
       
       skillsObserver.unobserve(entry.target);
     }
   });
 }, {
-  threshold: 0.3
+  threshold: 0.2
 });
 
 // Observe skills section
-const skillsSection = document.querySelector('.skills-list');
+const skillsSection = document.querySelector('.tech-list');
 if (skillsSection) {
   skillsObserver.observe(skillsSection);
 }
@@ -358,3 +372,68 @@ testimonialCards.forEach((card, index) => {
   card.style.animation = `fadeSlideIn var(--duration-medium) var(--ease-smooth) forwards`;
   card.style.animationDelay = `${index * 0.15 + 0.3}s`;
 });
+
+// Comet logic
+const comet = document.getElementById('comet');
+
+function spawnComet() {
+  if (!comet) return;
+  
+  // Random delay between 15 and 45 seconds
+  const delay = Math.random() * 30000 + 15000;
+  
+  setTimeout(() => {
+    // Random position and duration
+    const randomTop = Math.random() * 40; // top 40% of screen
+    const duration = Math.random() * 2000 + 3000; // 3-5 seconds
+    
+    comet.style.top = `${randomTop}%`;
+    comet.style.animation = `cometMove ${duration}ms var(--ease-out-quint) forwards`;
+    
+    // Reset after animation
+    setTimeout(() => {
+      comet.style.animation = 'none';
+      spawnComet();
+    }, duration + 100);
+  }, delay);
+}
+
+// Stats counter logic
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counters = entry.target.querySelectorAll('.stats-item-title');
+      
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-count');
+        const increment = target / 40; // adjusted for 1.6s duration
+        let currentCount = 0;
+        
+        const updateCount = () => {
+          if (currentCount < target) {
+            currentCount += increment;
+            counter.innerText = Math.ceil(currentCount);
+            setTimeout(updateCount, 40);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        
+        updateCount();
+      });
+      
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.5
+});
+
+// Observe stats section
+const statsSectionArr = document.querySelectorAll('.stats-list');
+statsSectionArr.forEach(section => {
+  statsObserver.observe(section);
+});
+
+// Initialize comet
+spawnComet();
