@@ -3,7 +3,7 @@
 A premium, space-themed portfolio website showcasing the professional journey, technical expertise, and creative projects of **Prabhas Mondal**.
 
 ## ✨ Live Demo
-Explore the live site at: **[pmondal98.netlify.app](https://pmondal98.netlify.app/)**
+Explore the live site at: **[prabhasmondal.netlify.app](https://prabhasmondal.netlify.app/)**
 
 ---
 
