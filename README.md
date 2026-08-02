@@ -34,8 +34,8 @@ This portfolio is a personal showcase built with a modern **Glassmorphism** aest
 - **About**: Professional bio, expertise cards, and milestone stats.
 - **Resume**: Timeline of education (BITS Pilani, KIIT) and industry experience (Oracle, Highradius).
 - **Works**: Repository of web and mobile projects like:
-  - **Maa Er Hneshel**: A platform for homemade food.
-  - **Vehicle Schedule Manager**: Fleet logistics tool.
+  - **Maa Er Rannaghor**: A platform for homemade food.
+  - **Vehicle Booking Manager**: Fleet logistics tool.
   - **Covid-19 Tracker**: Data visualization dashboard.
 - **Gallery**: High-quality mobile photography showcase.
 - **Contact**: Interactive lead generation and social link hub.
