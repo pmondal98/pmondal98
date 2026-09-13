@@ -138,6 +138,15 @@ if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    // Netlify processes this endpoint only on a Netlify deploy (or via
+    // `netlify dev`). Live Server has no Forms handler, so avoid a misleading
+    // failed request during local preview.
+    const isLiveServer = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+    if (isLiveServer) {
+      alert("Netlify Forms is unavailable in Live Server. Deploy this site to Netlify, or preview it locally with `netlify dev`, to send a test submission.");
+      return;
+    }
+
     const btnSpan = formBtn.querySelector("span");
     const originalText = btnSpan.innerText;
 
@@ -147,12 +156,14 @@ if (contactForm) {
 
     const formData = new FormData(contactForm);
 
-    fetch("/", {
+    fetch(contactForm.action, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
-      .then(() => {
+      .then((response) => {
+        if (!response.ok) throw new Error(`Submission failed: ${response.status}`);
+
         // Success state
         contactForm.classList.add("hidden");
         formSuccess.classList.add("active");
@@ -160,7 +171,8 @@ if (contactForm) {
         formBtn.setAttribute("disabled", "");
       })
       .catch((error) => {
-        alert("Oops! There was a problem submitting your form: " + error);
+        alert("Your message could not be sent. Please try again or email me directly.");
+        console.error("Netlify form submission error:", error);
       })
       .finally(() => {
         // Reset button state
@@ -479,3 +491,58 @@ statsSectionArr.forEach(section => {
 
 // Initialize comet
 spawnComet();
+
+// Progressive content reveal for the glass panels. It runs only once per
+// section, so the effect stays polished rather than replaying while scrolling.
+const revealTargets = document.querySelectorAll(
+  '.about section, .resume section, .gallery section, .works section, .contact section'
+);
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px' });
+
+revealTargets.forEach((target, index) => {
+  target.classList.add('motion-reveal');
+  target.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+  revealObserver.observe(target);
+});
+
+// A low-cost cursor aura subtly connects the foreground glass UI to the
+// existing star field. CSS handles rendering; JavaScript only updates values.
+if (window.matchMedia('(pointer: fine)').matches) {
+  let pointerFrame;
+  document.addEventListener('pointermove', ({ clientX, clientY }) => {
+    if (pointerFrame) return;
+    pointerFrame = requestAnimationFrame(() => {
+      document.body.style.setProperty('--pointer-x', `${clientX}px`);
+      document.body.style.setProperty('--pointer-y', `${clientY}px`);
+      pointerFrame = null;
+    });
+  }, { passive: true });
+}
+
+// Contextual calls-to-action use the same page navigation as the navbar.
+const pageTargets = document.querySelectorAll('[data-page-target]');
+pageTargets.forEach((target) => {
+  const openTargetPage = () => {
+    const pageName = target.dataset.pageTarget;
+    const navLink = [...navigationLinks].find(
+      (link) => link.textContent.trim().toLowerCase() === pageName
+    );
+    if (navLink) navLink.click();
+  };
+
+  target.addEventListener('click', openTargetPage);
+  target.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openTargetPage();
+    }
+  });
+});

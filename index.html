@@ -88,6 +88,7 @@
             <h1 class="name" title="Prabhas Mondal">Prabhas Mondal</h1>
 
             <p class="title">Full-Stack developer</p>
+            <p class="availability"><span></span> Open to opportunities</p>
           </div>
 
           <button class="info_more-btn" data-sidebar-btn>
@@ -109,8 +110,8 @@
               <div class="contact-info">
                 <p class="contact-title">Email</p>
 
-                <a href="mailto:mondalp.dgp19@gmail.com" class="contact-link"
-                  >mondalp.dgp19@gmail.com</a
+                <a href="mailto:mondal.prabhas.dev@gmail.com" class="contact-link"
+                  >mondal.prabhas.dev@gmail.com</a
                 >
               </div>
             </li>
@@ -242,15 +243,32 @@
             <h2 class="h2 article-title">About me</h2>
           </header>
 
-          <section class="about-text">
+          <section class="about-text intro-panel">
+            <p class="intro-eyebrow">Full-stack developer · Hyderabad, India</p>
+            <h3 class="intro-title">I build reliable digital experiences for people and businesses.</h3>
             <p>
-              Based in Hyderabad, India, I am a passionate Full Stack Developer who believes in the power of simplicity and elegant design. 
-              I specialize in transforming complex technical challenges into highly intuitive, human-centered software solutions. 
+              I turn complex technical challenges into intuitive web and mobile software, with a focus on thoughtful design, maintainable code, and a smooth experience for the people using it.
             </p>
             <p>
-              This approach is fueled by a commitment to continuous learning and applying new skills across all my professional and personal endeavors. 
-              Feel free to explore my work further or connect with me directly.
+              Explore selected work below, or get in touch if you have a product idea or an opportunity to discuss.
             </p>
+            <div class="hero-actions">
+              <button class="hero-button hero-button-primary" type="button" data-page-target="works">
+                View my work <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+              <button class="hero-button hero-button-secondary" type="button" data-page-target="contact">
+                Let&apos;s talk <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+              </button>
+            </div>
+          </section>
+
+          <section class="now-panel">
+            <div class="now-icon"><ion-icon name="sparkles-outline"></ion-icon></div>
+            <div>
+              <p class="intro-eyebrow">Right now</p>
+              <h3 class="h3">Building practical products and sharpening full-stack craft.</h3>
+              <p>Currently focused on polished web experiences, JavaScript, and scalable application development.</p>
+            </div>
           </section>
 
           <!--
@@ -261,7 +279,7 @@
             <h3 class="h3 service-title">What i'm doing</h3>
 
             <ul class="service-list">
-              <li class="service-item">
+              <li class="service-item" role="button" tabindex="0" data-page-target="works">
                 <div class="service-icon-box">
                   <img
                     src="./assets/images/icon-design.svg
@@ -272,7 +290,7 @@
                 </div>
 
                 <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Full-Stack development</h4>
+                  <h4 class="h4 service-item-title">Full-Stack development <ion-icon name="arrow-forward-outline"></ion-icon></h4>
 
                   <p class="service-item-text">
                     Professionally I develop high-quality development of
@@ -281,7 +299,7 @@
                 </div>
               </li>
 
-              <li class="service-item">
+              <li class="service-item" role="button" tabindex="0" data-page-target="works">
                 <div class="service-icon-box">
                   <img
                     src="./assets/images/icon-dev.svg"
@@ -291,7 +309,7 @@
                 </div>
 
                 <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Web development</h4>
+                  <h4 class="h4 service-item-title">Web development <ion-icon name="arrow-forward-outline"></ion-icon></h4>
 
                   <p class="service-item-text">
                     High-quality development of websites at my free time apart
@@ -300,7 +318,7 @@
                 </div>
               </li>
 
-              <li class="service-item">
+              <li class="service-item" role="button" tabindex="0" data-page-target="works">
                 <div class="service-icon-box">
                   <img
                     src="./assets/images/icon-app.svg"
@@ -310,7 +328,7 @@
                 </div>
 
                 <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Mobile apps</h4>
+                  <h4 class="h4 service-item-title">Mobile apps <ion-icon name="arrow-forward-outline"></ion-icon></h4>
 
                   <p class="service-item-text">
                     Have a good hands on in Android mobile app development as
@@ -319,7 +337,7 @@
                 </div>
               </li>
 
-              <li class="service-item">
+              <li class="service-item" role="button" tabindex="0" data-page-target="gallery">
                 <div class="service-icon-box">
                   <img
                     src="./assets/images/icon-photo.svg"
@@ -329,7 +347,7 @@
                 </div>
 
                 <div class="service-content-box">
-                  <h4 class="h4 service-item-title">Photography</h4>
+                  <h4 class="h4 service-item-title">Photography <ion-icon name="arrow-forward-outline"></ion-icon></h4>
 
                   <p class="service-item-text">
                     I make high-quality mobile photos of any category at a
@@ -1163,6 +1181,12 @@
                     <p class="blog-text">
                       Smart expense sharing web application to track balances, manage group bills, and settle payments effortlessly.
                     </p>
+                    <ul class="project-details">
+                      <li><strong>Role</strong> Full-stack developer</li>
+                      <li><strong>Stack</strong> JavaScript · Netlify</li>
+                      <li><strong>Outcome</strong> Clearer group expense tracking</li>
+                    </ul>
+                    <span class="project-link">View live project <ion-icon name="arrow-up-outline"></ion-icon></span>
                   </div>
                 </a>
               </li>
@@ -1194,6 +1218,12 @@
                     <p class="blog-text">
                       A responsive web platform for a homemade food business, showcasing signature delicacies and facilitating easy ordering.
                     </p>
+                    <ul class="project-details">
+                      <li><strong>Role</strong> Web developer</li>
+                      <li><strong>Focus</strong> Responsive ordering journey</li>
+                      <li><strong>Outcome</strong> A clearer path from menu to order</li>
+                    </ul>
+                    <span class="project-link">View live project <ion-icon name="arrow-up-outline"></ion-icon></span>
                   </div>
                 </a>
               </li>
@@ -1225,6 +1255,12 @@
                     <p class="blog-text">
                       Web app for fleet managers: Schedule, track expenses, and calculate profit/loss on vehicle bookings.
                     </p>
+                    <ul class="project-details">
+                      <li><strong>Role</strong> Full-stack developer</li>
+                      <li><strong>Focus</strong> Scheduling and expense visibility</li>
+                      <li><strong>Outcome</strong> Faster booking decisions</li>
+                    </ul>
+                    <span class="project-link">View live project <ion-icon name="arrow-up-outline"></ion-icon></span>
                   </div>
                 </a>
               </li>
@@ -1257,6 +1293,12 @@
                       Developed a website for keeping a track of the COVID 19 in
                       India single handedly.
                     </p>
+                    <ul class="project-details">
+                      <li><strong>Role</strong> Solo web developer</li>
+                      <li><strong>Focus</strong> Clear, accessible data visibility</li>
+                      <li><strong>Outcome</strong> Quick access to India&apos;s COVID-19 data</li>
+                    </ul>
+                    <span class="project-link">View live project <ion-icon name="arrow-up-outline"></ion-icon></span>
                   </div>
                 </a>
               </li>
@@ -1286,6 +1328,12 @@
                       Developed a website for the computer tution academy,
                       single handedly.
                     </p>
+                    <ul class="project-details">
+                      <li><strong>Role</strong> Solo web developer</li>
+                      <li><strong>Focus</strong> Course and academy discovery</li>
+                      <li><strong>Outcome</strong> A clearer digital presence for students</li>
+                    </ul>
+                    <span class="project-link">View live project <ion-icon name="arrow-up-outline"></ion-icon></span>
                   </div>
                 </a>
               </li>
@@ -1316,6 +1364,12 @@
                       University. The website framework for TedX was made by
                       me.
                     </p>
+                    <ul class="project-details">
+                      <li><strong>Role</strong> Web team director</li>
+                      <li><strong>Focus</strong> Event website framework</li>
+                      <li><strong>Outcome</strong> A polished home for TEDx KIIT University</li>
+                    </ul>
+                    <span class="project-link">View live project <ion-icon name="arrow-up-outline"></ion-icon></span>
                   </div>
                 </a>
               </li>
@@ -1375,8 +1429,20 @@
           <section class="contact-form">
             <h3 class="h3 form-title">Contact Form</h3>
 
-            <form action="/" method="POST" class="form" data-netlify="true" name="contact" id="contact-form" data-form>
+            <form
+              action="/"
+              method="POST"
+              class="form"
+              name="contact"
+              id="contact-form"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              data-form
+            >
               <input type="hidden" name="form-name" value="contact" />
+              <p class="netlify-honeypot" aria-hidden="true">
+                <label>Leave this field empty: <input name="bot-field" /></label>
+              </p>
               <div class="input-wrapper">
                 <input
                   type="text"
