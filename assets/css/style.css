@@ -3058,8 +3058,16 @@
   }
 
   @media (max-width: 550px) {
-    .testimonials-modal{
-      margin-top: 75vh;
+    .modal-container {
+      align-items: center;
+      padding: 12px;
+    }
+
+    .testimonials-modal {
+      width: 100%;
+      max-height: calc(100dvh - 24px);
+      margin: 0;
+      overflow-y: auto;
     }
 
   }
@@ -3253,6 +3261,26 @@
   .testimonials-list::-webkit-scrollbar-button { display: none; width: 0; }
 
   .testimonials-list:active { cursor: grabbing; }
+
+  /* The project dialog is a top-level viewport layer, independent from the
+     animated article it was declared in. */
+  .modal-container {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    overflow: hidden;
+    isolation: isolate;
+    z-index: 1000;
+  }
+
+  .testimonials-modal {
+    max-height: calc(100dvh - 48px);
+    overflow-y: auto;
+  }
 
   /* Keep paired work cards visually aligned on the two-column layout. */
   @media (min-width: 768px) {

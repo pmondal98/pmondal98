@@ -22,6 +22,10 @@ const modalContainer = document.querySelector("[data-modal-container]");
 const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
 const overlay = document.querySelector("[data-overlay]");
 
+// Keep the dialog outside the animated page panel so fixed positioning is
+// always calculated against the viewport.
+if (modalContainer) document.body.appendChild(modalContainer);
+
 // modal variable
 const modalImg = document.querySelector("[data-modal-img]");
 const modalTitle = document.querySelector("[data-modal-title]");
